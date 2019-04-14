@@ -42,7 +42,7 @@ END
 
 myopen() {
     if env | grep --quiet -F SSH_TTY; then
-        echo -n "$@" | nc -N localhost ${MG_REMOTE_PORT}
+        cat "$@" | nc -N localhost ${MG_REMOTE_PORT}
     elif hash open 2>/dev/null; then
         open "$@"
     else
